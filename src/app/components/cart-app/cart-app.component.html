@@ -1,3 +1,8 @@
-<h2 class="">Carro de compras</h2>
+<h2 class="">Catalogo de productos App!</h2>
 <app-catalog [products]="products"></app-catalog>
-<app-cart></app-cart>
+@if(items.length > 0){
+<app-cart [items]="items"></app-cart>
+} @else{
+  <div class="alert alert-info">No existe elementos en el carro!</div>
+}
+
