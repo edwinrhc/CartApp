@@ -20,6 +20,8 @@ export class CartAppComponent implements OnInit {
 
   total: number = 0;
 
+  showCart: boolean = false;
+
 
   constructor(private service: ProductService) {
   }
@@ -65,4 +67,9 @@ export class CartAppComponent implements OnInit {
   saveSession():void{
     sessionStorage.setItem('cart',JSON.stringify(this.items)); //Guardar como string lo convertimos
   }
+
+  openCart():void{
+    this.showCart = !this.showCart;
+  }
+
 }
