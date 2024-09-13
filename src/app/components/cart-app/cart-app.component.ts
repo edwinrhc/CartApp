@@ -25,7 +25,7 @@ export class CartAppComponent implements OnInit {
     this.products = this.service.findAll();
   }
 
-  onAddCart(product: Product) {
+  onAddCart(product: Product) :void {
     const hasItem = this.items.find(item => {
       return item.product.id === product.id;
     })
@@ -42,5 +42,9 @@ export class CartAppComponent implements OnInit {
     } else {
       this.items = [...this.items, {product: {...product}, quantity: 1}];
     }
+  }
+
+  onDeleteCart(id:number):void{
+    this.items = this.items.filter(item => item.product.id !== id);
   }
 }
